@@ -26,7 +26,8 @@ end
 
 group :production do
   # Postgres for heroku
-  gem 'pg'
+  # gem 'pg'
+  gem 'pg', '~> 0.18.0'
   # Newrelic to keep app alive on heroku and for performance
   gem 'newrelic_rpm'
 end
