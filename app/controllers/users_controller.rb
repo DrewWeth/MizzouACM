@@ -44,8 +44,11 @@ class UsersController < ApplicationController
     end
     @new_skill = @user.skills.build
     if !@user.github_username.blank?
-
-      @repos = @user.repos
+      begin
+        @repos = @user.repos
+      rescue Exception
+        @repos = []
+      end
     else
       @repos = []
     end
