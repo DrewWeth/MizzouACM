@@ -1,12 +1,9 @@
-%h2.transparent-region
-  Upcoming Events
-  - if user_is_admin?
-    =link_to new_event_path, :class => 'pull-right' do  
-      =icon_btn "New Event", "plus"
-- unless @upcoming_events.empty?
-  =render 'events/events_list', :events => @upcoming_events
-- else
-  %p.transparent-region We currently have no upcoming events planned. Check back soon!
+.transparent-region
+  %h2 MCA Calendar
+  <iframe src="https://www.google.com/calendar/embed?src=16ke8d0002acqmrokibsu4si3s%40group.calendar.google.com&ctz=America/Chicago" style="border: 0" width="100%" height="650px" frameborder="0" scrolling="no"></iframe>
+
+
+
 %h2.transparent-region Past Events
 - unless @past_events.empty?
   =render 'events/events_list', :events => @past_events

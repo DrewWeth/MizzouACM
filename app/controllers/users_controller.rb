@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
@@ -43,7 +43,13 @@ class UsersController < ApplicationController
       flash[:info] = "It's not cool to have an empty profile! Post your skills!"
     end
     @new_skill = @user.skills.build
-    @repos = @user.repos.sort {|x,y| y.watchers <=> x.watchers}
+    if !@user.github_username.blank?
+      # @repos = @user.repos
+      @repos = @user.repos.sort {|x,y| y.watchers <=> x.watchers}
+    else
+      @repos = []
+    end
+
   end
 
 end

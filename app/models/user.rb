@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :skills, :dependent => :destroy
   has_many :posts, :dependent => :destroy
   has_many :projects, :dependent => :destroy
-  
+
   def randomSkills(n)
     skills.sample(n)
   end
@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
       name
     end
   end
+
   def repos
       Github.repos.list user: github_username
   end
