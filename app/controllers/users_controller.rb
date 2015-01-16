@@ -44,8 +44,8 @@ class UsersController < ApplicationController
     end
     @new_skill = @user.skills.build
     if !@user.github_username.blank?
-      # @repos = @user.repos
-      @repos = @user.repos.sort {|x,y| y.watchers <=> x.watchers}
+
+      @repos = @user.repos
     else
       @repos = []
     end

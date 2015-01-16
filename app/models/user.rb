@@ -45,10 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def repos
-    begin
-      Github.repos.list user: github_username
-    rescue
+    Github.repos.list user: github_username
 
-    end
   end
 end
